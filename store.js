@@ -108,7 +108,8 @@ export const store = new Vuex.Store({
             dispatch('setFocusNow', today);
         }),
         setThisWeek: ({ //設定本週區間
-            commit
+            commit,
+            dispatch
         }, date) => {
             let w = date.getDay();
             let firstdayOfWeek = (w) ? date.addDays(1 - w) : date.addDays(-6);
@@ -117,6 +118,10 @@ export const store = new Vuex.Store({
             for (let i = 1; i < 7; i++)
                 week[i] = new Date(firstdayOfWeek.addDays(1));
             commit('setThisWeek', week);
+            setTimeout(() => {
+                dispatch('drawEvent');
+            }, 50)
+
         },
         setFocusNow: ({
             dispatch,
@@ -148,6 +153,7 @@ export const store = new Vuex.Store({
         },
         setThisMonth: ({ //設定本週區間
             commit,
+            dispatch,
             state
         }, date) => {
             let today = date ? date : state.focusNow;
@@ -177,8 +183,49 @@ export const store = new Vuex.Store({
                 thisMonth: month,
                 nextMonth: month2
             });
-
+            dispatch('drawEvent');
         },
+        drawEvent({ //設定本週區間
+            dispatch,
+            state
+        }) {
+            console.log('hi')
+            document.querySelectorAll('.those_events').forEach(e => e.parentNode.removeChild(e));
+            for (let i = 0; i < state.eventList.length; i++) {
+                let {
+                    title,
+                    member,
+                    start,
+                    end
+                } = state.eventList[i];
+                let dateStart = new Date(start).getFullYear() + '-' + (new Date(start).getMonth() + 1) + '-' + (new Date(start).getDate());
+                let timeStart = new Date(start).getHours();
+                let timeEnd = new Date(end).getHours();
+
+                let timeLength = timeEnd - timeStart;
+                let span;
+                for (let i = 0; i < timeLength; i++) {
+                    span = document.querySelector(`.week-day-${dateStart}.time-row-${timeStart+i}`);
+                    if (span) {
+                        if (i == 0 && timeLength == 1) span.innerHTML = `<span class="those_events" style="border-radius: 10px;">${title}</span>`
+                        else if (i == 0 && timeLength > 1) span.innerHTML = `<span class="those_events" style="border-radius: 10px 10px 0 0;">${title}</span>`
+                        else if (i == timeLength - 1) span.innerHTML = `<span class="those_events"  style="border-radius: 0 0 10px 10px;"></span>`
+                        else span.innerHTML = `<span class="those_events"  style="border-radius: 0;"></span>`;
+                    }
+                }
+            }
+            dispatch('drawNow');
+        },
+        drawNow() {
+            let dateStart = new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + (new Date().getDate());
+            let timeStart = new Date().getHours();
+            let transX = new Date().getMinutes();
+            let span = document.querySelector(`.week-day-${dateStart}.time-row-${timeStart}`);
+            if (span) {
+                span.innerHTML = span.innerHTML + `<span class="now those_events" style="transform:translate(0,${transX}px)"></span>`;
+
+            }
+        }
     },
     getters: {
         getEventList: (state) => {
