@@ -610,7 +610,6 @@ body main {
           clip-path: circle(30% at 50% 50%);
   opacity: 0;
   position: relative;
-  overflow: hidden;
 }
 
 .monthAll > .buttons {
@@ -838,6 +837,7 @@ body main {
           animation: open 2s ease-in-out .2s 1 normal forwards;
   -webkit-clip-path: circle(0 at 50% 0);
           clip-path: circle(0 at 50% 0);
+  z-index: 5;
 }
 
 .reserveAll > form {
