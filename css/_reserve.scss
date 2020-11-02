@@ -1,0 +1,119 @@
+.reserveAll {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    animation: open 2s ease-in-out .2s 1 normal forwards;
+    clip-path: circle(0 at 50% 0);
+
+    >form {
+        position: absolute;
+        left: 50%;
+        top: 40%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 500px;
+        padding: 2rem 0;
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+
+        >.close-btn {
+            position: absolute;
+            right: 32px;
+            top: 10px;
+            width: 32px;
+            height: 32px;
+            opacity: 0.3;
+            background: transparent;
+            outline: none;
+            cursor: pointer;
+            border: none;
+
+            &:hover {
+                opacity: 1;
+            }
+
+            &:before,
+            &:after {
+                position: absolute;
+                left: 15px;
+                content: ' ';
+                height: 33px;
+                width: 2px;
+                background-color: #333;
+            }
+
+            &:before {
+                transform: rotate(45deg);
+            }
+
+            &:after {
+                transform: rotate(-45deg);
+            }
+        }
+
+        >table {
+            margin: 0 auto;
+
+            >thead {
+                >tr {
+                    height: 3rem;
+
+                    >th {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+
+            >tbody {
+                >tr {
+                    >td {
+                        padding: .5rem 0 .5rem 1rem;
+
+                        &:first-child {
+                            text-align: right;
+                            padding-right: .5rem;
+                        }
+
+                        &:last-child {
+                            text-align: left;
+
+                            >input {
+                                font-size: 1rem;
+                                border: none;
+                                border-bottom: .5px solid #666;
+                                outline-color: $secondary-color;
+                            }
+                        }
+
+                        &:only-child {
+                            padding: 1rem 0 0;
+                            text-align: center;
+
+                            >button {
+                                background-color: $primary-color;
+                                color: white;
+                                border-radius: .5rem;
+                                border: none;
+                                padding: .7rem 2rem;
+                                cursor: pointer;
+                                outline: none;
+                                box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+                                font-size: 1rem;
+                            }
+                        }
+                    }
+
+
+                }
+            }
+        }
+    }
+}
+
+@keyframes open {
+    to {
+        clip-path: circle(200% at 50% 0);
+    }
+}

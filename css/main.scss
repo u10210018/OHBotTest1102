@@ -1,0 +1,48 @@
+@import './reset';
+$primary-color: #7F74B4;
+$secondary-color: #DEDAF4;
+
+:root {
+    font-family: 'Open Sans';
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+
+    main {
+        max-width: 1200px;
+        margin: 0px auto;
+        background-color: rgb(246, 246, 246);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+        overflow: auto;
+        height: 100vh;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        padding: 30px 0 50px;
+
+        main {
+            height: calc(100vh - 80px);
+        }
+    }
+}
+
+
+
+// buttons
+@import './buttons';
+
+// week
+@import './week';
+
+// month
+@import './month';
+
+// reserve
+@import './reserve';

@@ -1,0 +1,242 @@
+.buttonsAll {
+    background-color: white;
+    display: flex;
+    flex-flow: nowrap column;
+    color: #444;
+    box-shadow: 0 .1rem .5rem rgba(0, 0, 0, .15);
+    position: fixed;
+    width: 100%;
+    max-width: 1200px;
+    top: 0px;
+    z-index: 2;
+
+    >div {
+        display: flex;
+        flex-flow: nowrap row;
+        flex: 0 0 60px;
+        justify-content: space-between;
+        padding-bottom: 20px;
+
+        >.title,
+        .show-date-focus {
+            font-size: 1rem;
+            line-height: 60px;
+            font-weight: 600;
+            padding: .2rem .3rem;
+        }
+
+        >.show-date-focus {
+            display: flex;
+            align-items: center;
+
+            >.for-time {
+                padding: 0 .5em;
+            }
+
+            >.for-arrow {
+                border-radius: 50%;
+                height: 1.5rem;
+                width: 1.5rem;
+                background-color: $secondary_color;
+                cursor: pointer;
+
+                >.arrow {
+                    border-width: 0 3px 3px 0;
+                    display: inline-block;
+                    padding: .3rem;
+                    background: linear-gradient(315deg, $primary_color 50%, transparent 50%);
+
+                    &.left {
+                        transform: translate(9px, -20px) rotate(135deg);
+                    }
+
+                    &.right {
+                        transform: translate(4px, -20px) rotate(-45deg);
+
+                    }
+                }
+            }
+        }
+
+        >.view-buttons {
+            display: flex;
+            flex-flow: nowrap row;
+            flex: 1 0 100px;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 10px;
+
+            >.select-view-button {
+                padding: 0.7rem 1.2rem;
+                border-radius: 1.5rem;
+                color: $primary_color;
+                background-color: $secondary_color;
+                border: none;
+                outline: none;
+                margin-left: 10px;
+                cursor: pointer;
+
+                >.arrow {
+                    border-width: 0 3px 3px 0;
+                    display: inline-block;
+                    padding: 3px;
+                    background: linear-gradient(315deg, $primary_color 50%, transparent 50%);
+
+                    &.up {
+                        transform: translate(6px, 0px) rotate(-135deg);
+                    }
+
+                    &.down {
+                        transform: translate(6px, -3px) rotate(45deg);
+
+                    }
+                }
+            }
+
+
+        }
+    }
+
+    >.buttons-date {
+        display: flex;
+        flex-flow: nowrap row;
+        flex: 0 1 45px;
+        margin: 0 0 10px;
+
+        >li {
+            flex: 1 1 40px;
+            font-size: 0.75rem;
+
+            &.week-change {
+                text-align: center;
+                flex: 1 1 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-bottom: 5px;
+                padding-right: 1rem;
+
+                >span {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 25px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background-color: $secondary_color;
+                    margin: 0 auto;
+                    cursor: pointer;
+
+                    >li {
+                        color: $primary_color;
+                    }
+                }
+
+            }
+
+            &.week-nav {
+                cursor: pointer;
+
+                &.today:after {
+                    content: '';
+                    width: 5px;
+                    height: 5px;
+                    border-radius: 50%;
+                    background-color: rgb(63, 219, 201);
+                    display: block;
+                    margin: 5px auto 0;
+                }
+
+                >.week-tag {
+                    display: flex;
+                    flex-flow: nowrap column;
+                    text-align: center;
+                    cursor: pointer;
+                    padding: 0.5rem;
+
+
+
+                    &.focus {
+                        background-color: $primary_color;
+                        border-radius: .5rem;
+                        color: white;
+                    }
+
+                    >.week-tag-day {
+                        padding-bottom: calc(3px + 1vw);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .buttonsAll {
+        top: 30px;
+
+        >div {
+
+            >.title,
+            .show-date-focus {
+                font-size: 1.2rem;
+                padding: 1.6rem 3rem;
+            }
+
+            >.show-date-focus {
+                display: flex;
+                align-items: center;
+
+                >.for-arrow {
+                    height: 2rem;
+                    width: 2rem;
+                    background-color: $secondary_color;
+
+                    >.arrow {
+                        border-width: 0 3px 3px 0;
+                        padding: .3rem;
+                        background: linear-gradient(315deg, $primary_color 50%, transparent 50%);
+
+                        &.left {
+                            transform: translate(11px, -15px) rotate(135deg);
+                        }
+
+                        &.right {
+                            transform: translate(7px, -15px) rotate(-45deg);
+
+                        }
+                    }
+                }
+            }
+        }
+
+        >.buttons-date {
+            >li {
+                font-size: 1rem;
+
+                &.week-change {
+                    >span {
+                        font-size: 1.5rem;
+                        width: 40px;
+                        height: 40px;
+
+                        >li {}
+                    }
+                }
+
+                &.week-nav {
+                    &.today:after {
+                        width: 50%;
+                        border-radius: 0;
+                    }
+
+                    >.week-tag {
+                        &.focus {}
+
+                        >.week-tag-day {}
+                    }
+                }
+            }
+        }
+    }
+}

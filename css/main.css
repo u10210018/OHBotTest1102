@@ -1,0 +1,955 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v5.0.1 | 20191019
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+menu,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+  display: block;
+}
+
+/* HTML5 hidden-attribute fix for newer browsers */
+*[hidden] {
+  display: none;
+}
+
+body {
+  line-height: 1;
+}
+
+menu,
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+:root {
+  font-family: 'Open Sans';
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+}
+
+body main {
+  max-width: 1200px;
+  margin: 0px auto;
+  background-color: #f6f6f6;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  overflow: auto;
+  height: 100vh;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    padding: 30px 0 50px;
+  }
+  body main {
+    height: calc(100vh - 80px);
+  }
+}
+
+.buttonsAll {
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: nowrap column;
+          flex-flow: nowrap column;
+  color: #444;
+  -webkit-box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.15);
+  position: fixed;
+  width: 100%;
+  max-width: 1200px;
+  top: 0px;
+  z-index: 2;
+}
+
+.buttonsAll > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: nowrap row;
+          flex-flow: nowrap row;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 60px;
+          flex: 0 0 60px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.buttonsAll > div > .title,
+.buttonsAll > div .show-date-focus {
+  font-size: 1rem;
+  line-height: 60px;
+  font-weight: 600;
+  padding: .2rem .3rem;
+}
+
+.buttonsAll > div > .show-date-focus {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.buttonsAll > div > .show-date-focus > .for-time {
+  padding: 0 .5em;
+}
+
+.buttonsAll > div > .show-date-focus > .for-arrow {
+  border-radius: 50%;
+  height: 1.5rem;
+  width: 1.5rem;
+  background-color: #DEDAF4;
+  cursor: pointer;
+}
+
+.buttonsAll > div > .show-date-focus > .for-arrow > .arrow {
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: .3rem;
+  background: linear-gradient(315deg, #7F74B4 50%, transparent 50%);
+}
+
+.buttonsAll > div > .show-date-focus > .for-arrow > .arrow.left {
+  -webkit-transform: translate(9px, -20px) rotate(135deg);
+          transform: translate(9px, -20px) rotate(135deg);
+}
+
+.buttonsAll > div > .show-date-focus > .for-arrow > .arrow.right {
+  -webkit-transform: translate(4px, -20px) rotate(-45deg);
+          transform: translate(4px, -20px) rotate(-45deg);
+}
+
+.buttonsAll > div > .view-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: nowrap row;
+          flex-flow: nowrap row;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 100px;
+          flex: 1 0 100px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-right: 10px;
+}
+
+.buttonsAll > div > .view-buttons > .select-view-button {
+  padding: 0.7rem 1.2rem;
+  border-radius: 1.5rem;
+  color: #7F74B4;
+  background-color: #DEDAF4;
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.buttonsAll > div > .view-buttons > .select-view-button > .arrow {
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  background: linear-gradient(315deg, #7F74B4 50%, transparent 50%);
+}
+
+.buttonsAll > div > .view-buttons > .select-view-button > .arrow.up {
+  -webkit-transform: translate(6px, 0px) rotate(-135deg);
+          transform: translate(6px, 0px) rotate(-135deg);
+}
+
+.buttonsAll > div > .view-buttons > .select-view-button > .arrow.down {
+  -webkit-transform: translate(6px, -3px) rotate(45deg);
+          transform: translate(6px, -3px) rotate(45deg);
+}
+
+.buttonsAll > .buttons-date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: nowrap row;
+          flex-flow: nowrap row;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 45px;
+          flex: 0 1 45px;
+  margin: 0 0 10px;
+}
+
+.buttonsAll > .buttons-date > li {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 40px;
+          flex: 1 1 40px;
+  font-size: 0.75rem;
+}
+
+.buttonsAll > .buttons-date > li.week-change {
+  text-align: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50px;
+          flex: 1 1 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 5px;
+  padding-right: 1rem;
+}
+
+.buttonsAll > .buttons-date > li.week-change > span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 25px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #DEDAF4;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.buttonsAll > .buttons-date > li.week-change > span > li {
+  color: #7F74B4;
+}
+
+.buttonsAll > .buttons-date > li.week-nav {
+  cursor: pointer;
+}
+
+.buttonsAll > .buttons-date > li.week-nav.today:after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #3fdbc9;
+  display: block;
+  margin: 5px auto 0;
+}
+
+.buttonsAll > .buttons-date > li.week-nav > .week-tag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: nowrap column;
+          flex-flow: nowrap column;
+  text-align: center;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.buttonsAll > .buttons-date > li.week-nav > .week-tag.focus {
+  background-color: #7F74B4;
+  border-radius: .5rem;
+  color: white;
+}
+
+.buttonsAll > .buttons-date > li.week-nav > .week-tag > .week-tag-day {
+  padding-bottom: calc(3px + 1vw);
+}
+
+@media screen and (min-width: 768px) {
+  .buttonsAll {
+    top: 30px;
+  }
+  .buttonsAll > div > .title,
+  .buttonsAll > div .show-date-focus {
+    font-size: 1.2rem;
+    padding: 1.6rem 3rem;
+  }
+  .buttonsAll > div > .show-date-focus {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .buttonsAll > div > .show-date-focus > .for-arrow {
+    height: 2rem;
+    width: 2rem;
+    background-color: #DEDAF4;
+  }
+  .buttonsAll > div > .show-date-focus > .for-arrow > .arrow {
+    border-width: 0 3px 3px 0;
+    padding: .3rem;
+    background: linear-gradient(315deg, #7F74B4 50%, transparent 50%);
+  }
+  .buttonsAll > div > .show-date-focus > .for-arrow > .arrow.left {
+    -webkit-transform: translate(11px, -15px) rotate(135deg);
+            transform: translate(11px, -15px) rotate(135deg);
+  }
+  .buttonsAll > div > .show-date-focus > .for-arrow > .arrow.right {
+    -webkit-transform: translate(7px, -15px) rotate(-45deg);
+            transform: translate(7px, -15px) rotate(-45deg);
+  }
+  .buttonsAll > .buttons-date > li {
+    font-size: 1rem;
+  }
+  .buttonsAll > .buttons-date > li.week-change > span {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+  }
+  .buttonsAll > .buttons-date > li.week-nav.today:after {
+    width: 50%;
+    border-radius: 0;
+  }
+}
+
+.weekAll {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: nowrap row;
+          flex-flow: nowrap row;
+  color: #444;
+  margin-top: 145px;
+  padding-bottom: 100px;
+}
+
+.weekAll .week-column {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50px;
+          flex: 1 1 50px;
+}
+
+.weekAll .week-column.time-column {
+  max-width: 160px;
+}
+
+.weekAll .week-column.week-main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 40px;
+          flex: 1 1 40px;
+}
+
+.weekAll .week-column.week-main.with-day-view {
+  display: none;
+}
+
+.weekAll .week-column.week-main.with-day-view.this-show-all {
+  display: inherit;
+  -webkit-box-flex: 7;
+      -ms-flex: 7 1 50px;
+          flex: 7 1 50px;
+}
+
+.weekAll .week-column.week-main.with-day-view.this-show-all > ul {
+  width: 100%;
+}
+
+.weekAll .week-column > ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: nowrap column;
+          flex-flow: nowrap column;
+}
+
+.weekAll .week-column > ul > .td,
+.weekAll .week-column > ul > .tr {
+  font-size: 0.75rem;
+  height: 60px;
+  border: 1px solid #e6e6e6;
+}
+
+.weekAll .week-column > ul > .tr {
+  line-height: 105px;
+  text-align: right;
+}
+
+.weekAll .week-column > ul > .td {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: nowrap row;
+          flex-flow: nowrap row;
+  position: relative;
+}
+
+.weekAll .week-column > ul > .td > span {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  background-color: #dad7d7;
+  border-radius: 10px;
+  font-size: .75rem;
+  text-align: left;
+  padding: .5rem;
+}
+
+.weekAll .week-column > ul > .td > span.now {
+  position: absolute;
+  height: 2px;
+  display: inline-block;
+  width: 100%;
+  background-color: #707070;
+  padding: 0;
+}
+
+.weekAll .week-column > ul > .td > span.now::before {
+  content: '';
+  display: inline-block;
+  background-color: #707070;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  position: absolute;
+  -webkit-transform: translate(-5px, -1px);
+          transform: translate(-5px, -1px);
+}
+
+.insert-btn {
+  position: fixed;
+  bottom: 3rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background-color: #7F74B4;
+  color: white;
+  padding: .7rem 2rem;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  border-radius: .5rem;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+@media screen and (min-width: 768px) {
+  .weekAll {
+    margin-top: 200px;
+  }
+  .weekAll .week-column > ul > .tr {
+    font-size: 1rem;
+  }
+  .weekAll .week-column > ul > .td > span {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+  .weekAll .insert-btn {
+    bottom: 5rem;
+  }
+}
+
+.monthAll {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: nowrap column;
+          flex-flow: nowrap column;
+  color: #444;
+  background-color: #7F74B4;
+  height: 100%;
+  -webkit-animation: openMonth 2s ease-in-out .2s 1 normal forwards;
+          animation: openMonth 2s ease-in-out .2s 1 normal forwards;
+  -webkit-clip-path: circle(30% at 50% 50%);
+          clip-path: circle(30% at 50% 50%);
+  opacity: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.monthAll > .buttons {
+  width: 100%;
+  height: 140px;
+  -webkit-box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.15);
+  background-color: white;
+}
+
+.monthAll > .buttons > .close-btn {
+  position: absolute;
+  right: 32px;
+  top: 10px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+  border: none;
+}
+
+.monthAll > .buttons > .close-btn:hover {
+  opacity: 1;
+}
+
+.monthAll > .buttons > .close-btn:before, .monthAll > .buttons > .close-btn:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: #333;
+}
+
+.monthAll > .buttons > .close-btn:before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.monthAll > .buttons > .close-btn:after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.monthAll > .buttons > .title-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: nowrap row;
+          flex-flow: nowrap row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1rem;
+  line-height: 60px;
+  font-weight: 600;
+  padding: .2rem .3rem;
+  margin: 10px 0 0;
+}
+
+.monthAll > .buttons > .title-top > .calendar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #7F74B4;
+  cursor: pointer;
+  color: white;
+  margin: 0 .5rem 0 .8rem;
+}
+
+.monthAll > .buttons > .title-top > .calendar > i {
+  font-size: .5rem;
+}
+
+.monthAll > .buttons > .monthNow {
+  text-align: center;
+  padding: 0 0 1rem;
+}
+
+.monthAll > .buttons > ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: nowrap row;
+          flex-flow: nowrap row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 0 1rem;
+}
+
+.monthAll > .buttons > ul > .week-nav {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50px;
+          flex: 1 1 50px;
+  text-align: center;
+  padding: 0 .5rem 1rem;
+}
+
+.monthAll > .months {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: nowrap column;
+          flex-flow: nowrap column;
+  -webkit-transform: translate(15px, 0px);
+          transform: translate(15px, 0px);
+  margin-left: -15px;
+  margin-right: 15px;
+}
+
+.monthAll > .months > .month {
+  padding: .5rem 1rem;
+}
+
+.monthAll > .months > .month > table {
+  height: 200px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+.monthAll > .months > .month > table > tbody > tr > td {
+  color: #000;
+  font-weight: 600;
+}
+
+.monthAll > .months > .month > table > tbody > tr > td.myFocus > span {
+  background: #7F74B4;
+  width: 1rem;
+  display: inline-block;
+  height: 1rem;
+  border-radius: 50%;
+}
+
+.monthAll > .months > .month > table > tbody > tr > td.myFocus.not-this-week > span {
+  background: transparent;
+}
+
+.monthAll > .months > .month > table > tbody > tr > td.not-this-week {
+  color: #666;
+  font-weight: 200;
+}
+
+.monthAll > .months > .month > table > tbody > tr > td:after {
+  content: '';
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: #3fdbc9;
+  display: block;
+  margin: 5px auto .6rem;
+  opacity: 0;
+}
+
+.monthAll > .months > .month > table > tbody > tr > td.today:after {
+  opacity: 1;
+}
+
+.monthAll > .months > .month > .monthNow {
+  text-align: center;
+  padding: 0 0 1rem;
+}
+
+.monthAll > .months > .select-btn {
+  position: fixed;
+  bottom: -30px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background-color: #7F74B4;
+  color: white;
+  padding: .5rem 3rem;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  border-radius: .5rem;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+@-webkit-keyframes openMonth {
+  to {
+    background-color: #f6f6f6;
+    opacity: 1;
+    -webkit-clip-path: circle(200% at 50% 50%);
+            clip-path: circle(200% at 50% 50%);
+  }
+}
+
+@keyframes openMonth {
+  to {
+    background-color: #f6f6f6;
+    opacity: 1;
+    -webkit-clip-path: circle(200% at 50% 50%);
+            clip-path: circle(200% at 50% 50%);
+  }
+}
+
+.reserveAll {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  -webkit-animation: open 2s ease-in-out .2s 1 normal forwards;
+          animation: open 2s ease-in-out .2s 1 normal forwards;
+  -webkit-clip-path: circle(0 at 50% 0);
+          clip-path: circle(0 at 50% 0);
+}
+
+.reserveAll > form {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  padding: 2rem 0;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.reserveAll > form > .close-btn {
+  position: absolute;
+  right: 32px;
+  top: 10px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+  border: none;
+}
+
+.reserveAll > form > .close-btn:hover {
+  opacity: 1;
+}
+
+.reserveAll > form > .close-btn:before, .reserveAll > form > .close-btn:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: #333;
+}
+
+.reserveAll > form > .close-btn:before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.reserveAll > form > .close-btn:after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.reserveAll > form > table {
+  margin: 0 auto;
+}
+
+.reserveAll > form > table > thead > tr {
+  height: 3rem;
+}
+
+.reserveAll > form > table > thead > tr > th {
+  font-size: 1.5rem;
+}
+
+.reserveAll > form > table > tbody > tr > td {
+  padding: .5rem 0 .5rem 1rem;
+}
+
+.reserveAll > form > table > tbody > tr > td:first-child {
+  text-align: right;
+  padding-right: .5rem;
+}
+
+.reserveAll > form > table > tbody > tr > td:last-child {
+  text-align: left;
+}
+
+.reserveAll > form > table > tbody > tr > td:last-child > input {
+  font-size: 1rem;
+  border: none;
+  border-bottom: .5px solid #666;
+  outline-color: #DEDAF4;
+}
+
+.reserveAll > form > table > tbody > tr > td:only-child {
+  padding: 1rem 0 0;
+  text-align: center;
+}
+
+.reserveAll > form > table > tbody > tr > td:only-child > button {
+  background-color: #7F74B4;
+  color: white;
+  border-radius: .5rem;
+  border: none;
+  padding: .7rem 2rem;
+  cursor: pointer;
+  outline: none;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  font-size: 1rem;
+}
+
+@-webkit-keyframes open {
+  to {
+    -webkit-clip-path: circle(200% at 50% 0);
+            clip-path: circle(200% at 50% 0);
+  }
+}
+
+@keyframes open {
+  to {
+    -webkit-clip-path: circle(200% at 50% 0);
+            clip-path: circle(200% at 50% 0);
+  }
+}
+/*# sourceMappingURL=main.css.map */

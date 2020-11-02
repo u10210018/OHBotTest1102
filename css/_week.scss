@@ -1,0 +1,137 @@
+.weekAll {
+    display: flex;
+    flex-flow: nowrap row;
+    color: #444;
+    margin-top: 145px;
+    padding-bottom: 100px;
+
+    .week-column {
+        flex: 1 1 50px;
+
+        &.time-column {
+            max-width: 160px;
+        }
+
+        &.week-main {
+            flex: 1 1 40px;
+
+            &.with-day-view {
+                display: none;
+            }
+
+            &.with-day-view.this-show-all {
+                display: inherit;
+                flex: 7 1 50px;
+
+                >ul {
+                    width: 100%;
+                }
+            }
+        }
+
+        >ul {
+            display: flex;
+            flex-flow: nowrap column;
+
+            >.td,
+            >.tr {
+                font-size: 0.75rem;
+                height: 60px;
+                border: 1px solid rgb(230, 230, 230);
+            }
+
+            >.tr {
+                line-height: 105px;
+                text-align: right;
+            }
+
+            >.td {
+                display: flex;
+                flex-flow: nowrap row;
+                position: relative;
+
+                >span {
+                    flex: 1 1 auto;
+                    background-color: #dad7d7;
+                    border-radius: 10px;
+                    font-size: .75rem;
+                    text-align: left;
+                    padding: .5rem;
+
+                    &.now {
+                        position: absolute;
+                        height: 2px;
+                        display: inline-block;
+                        width: 100%;
+                        background-color: #707070;
+                        padding: 0;
+
+                        &::before {
+                            content: '';
+                            display: inline-block;
+                            background-color: #707070;
+                            width: 5px;
+                            height: 5px;
+                            border-radius: 50%;
+                            position: absolute;
+                            transform: translate(-5px, -1px);
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+.insert-btn {
+    position: fixed;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $primary-color;
+    color: white;
+    padding: .7rem 2rem;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+}
+
+@media screen and (min-width: 768px) {
+    .weekAll {
+        margin-top: 200px;
+
+        .week-column {
+            &.week-main {
+                &.with-day-view {}
+
+                &.with-day-view.this-show-all {
+                    >ul {}
+                }
+            }
+
+            >ul {
+
+                >.td,
+                >.tr {}
+
+                >.tr {
+                    font-size: 1rem;
+                }
+
+                >.td {
+                    >span {
+                        font-size: 1rem;
+                        padding: 1rem;
+                    }
+                }
+            }
+        }
+
+        .insert-btn {
+            bottom: 5rem;
+        }
+    }
+}

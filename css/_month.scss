@@ -1,0 +1,191 @@
+.monthAll {
+    display: flex;
+    flex-flow: nowrap column;
+    color: #444;
+    background-color: $primary-color;
+    height: 100%;
+    animation: openMonth 2s ease-in-out .2s 1 normal forwards;
+    clip-path: circle(30% at 50% 50%);
+    opacity: 0;
+    position: relative;
+    overflow: hidden;
+
+    >.buttons {
+        width: 100%;
+        height: 140px;
+        box-shadow: 0 .1rem .5rem rgba(0, 0, 0, .15);
+        background-color: white;
+
+        >.close-btn {
+            position: absolute;
+            right: 32px;
+            top: 10px;
+            width: 32px;
+            height: 32px;
+            opacity: 0.3;
+            background: transparent;
+            outline: none;
+            cursor: pointer;
+            border: none;
+
+            &:hover {
+                opacity: 1;
+            }
+
+            &:before,
+            &:after {
+                position: absolute;
+                left: 15px;
+                content: ' ';
+                height: 33px;
+                width: 2px;
+                background-color: #333;
+            }
+
+            &:before {
+                transform: rotate(45deg);
+            }
+
+            &:after {
+                transform: rotate(-45deg);
+            }
+        }
+
+        >.title-top {
+            display: flex;
+            flex-flow: nowrap row;
+            align-items: center;
+            font-size: 1rem;
+            line-height: 60px;
+            font-weight: 600;
+            padding: .2rem .3rem;
+            margin: 10px 0 0;
+
+            >.calendar {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                background-color: $primary_color;
+                cursor: pointer;
+                color: white;
+                margin: 0 .5rem 0 .8rem;
+
+                >i {
+                    font-size: .5rem;
+                }
+            }
+        }
+
+        >.monthNow {
+            text-align: center;
+            padding: 0 0 1rem;
+        }
+
+        >ul {
+            display: flex;
+            flex-flow: nowrap row;
+            justify-content: space-evenly;
+            padding: 0 1rem;
+
+            >.week-nav {
+                flex: 1 1 50px;
+                text-align: center;
+                padding: 0 .5rem 1rem;
+            }
+        }
+    }
+
+    >.months {
+        display: flex;
+        flex-flow: nowrap column;
+        transform: translate(15px, 0px);
+        margin-left: -15px;
+        margin-right: 15px;
+
+        >.month {
+            padding: .5rem 1rem;
+
+            >table {
+                height: 200px;
+                margin: 0 auto;
+                width: 100%;
+                text-align: center;
+
+                >tbody>tr {
+                    >td {
+                        color: #000;
+                        font-weight: 600;
+
+                        &.myFocus {
+                            >span {
+                                background: $primary-color;
+                                width: 1rem;
+                                display: inline-block;
+                                height: 1rem;
+                                border-radius: 50%;
+                            }
+
+                            &.not-this-week {
+                                >span {
+                                    background: transparent;
+                                }
+
+                            }
+                        }
+
+                        &.not-this-week {
+                            color: #666;
+                            font-weight: 200;
+                        }
+
+                        &:after {
+                            content: '';
+                            width: 3px;
+                            height: 3px;
+                            border-radius: 50%;
+                            background-color: rgb(63, 219, 201);
+                            display: block;
+                            margin: 5px auto .6rem;
+                            opacity: 0;
+                        }
+
+                        &.today:after {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            >.monthNow {
+                text-align: center;
+                padding: 0 0 1rem;
+            }
+        }
+
+        >.select-btn {
+            position: fixed;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: $primary-color;
+            color: white;
+            padding: .5rem 3rem;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            border-radius: .5rem;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+        }
+    }
+}
+
+@keyframes openMonth {
+    to {
+        background-color: rgb(246, 246, 246);
+        opacity: 1;
+        clip-path: circle(200% at 50% 50%);
+    }
+}
